@@ -27,5 +27,4 @@ describe("rotate", function(){
   it("rotates", function(){
     assert.deepEqual(f.rotate(["1","2","4"]), ["2","4","1"]);
   });
-
 });

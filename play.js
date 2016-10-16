@@ -25,8 +25,15 @@ var model = {
     }
     return permutations;
   },
-  combinations: function(possibilitiesPerKey) {
-    
+  combinations: function(arrays){
+    var copy = arrays.slice();
+    var current = copy.shift();
+    var results = [];
+    for(var array of copy) {
+      var result = this.combo(current, array);
+      result.push;
+    }
+    return results;
   },
   rotate: function(arr){
     var last = arr.shift();
@@ -37,7 +44,11 @@ var model = {
     var result = []
     for(var item of first) {
       for(var match of second){
-        result.push(item+match);
+        var added = item+match;
+        var matched = result.filter(function(item){
+          return item === added;
+        });
+        if(matched.length === 0) result.push(added);
       }
     }
     return result;
