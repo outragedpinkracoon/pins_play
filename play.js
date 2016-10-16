@@ -14,16 +14,28 @@ var model = {
   getPINs: function(observed) {
     var arr = observed.split("");
     if(arr.length === 1) return possibilities[arr[0]];
-    var possibilitiesPerKey = this.generateKeyPossibilities(arr);
-    generateCombinations(possibilitiesPerKey);
+    var possibleKeys = this.keyPossibilities(arr);
+    this.combinations(possibleKeys);
   },
-  generateKeyPossibilities: function(arr){
+  keyPossibilities: function(arr){
     var permutations = [];
     for(var item of arr){
       var possibles = this.possibilities[item];
       permutations.push(possibles);
     }
     return permutations;
+  },
+  combinations: function(possibilitiesPerKey) {
+
+  },
+  combo: function(first, second){
+    var result = []
+    for(var item of first) {
+      for(var match of second){
+        result.push(item+match);
+      }
+    }
+    return result;
   }
 }
 
