@@ -9,7 +9,7 @@ var model = {
     "7": ["4","7", "8"],
     "8": ["0", "5", "7", "8", "9"],
     "9": ["6", "8", "9"],
-    "0": ["8"]
+    "0": ["0","8"]
   },
   getPINs: function(observed) {
     var arr = observed.split("");
@@ -66,9 +66,5 @@ var model = {
     return matched.length !== 0;
   }
 }
-
-// getPINs("11");
-
-//["11", "22", "44", "12", "21", "14", "41", "24", "42"]
 
 module.exports = model;
