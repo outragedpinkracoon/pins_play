@@ -25,25 +25,10 @@ var model = {
     }
     return permutations;
   },
-  combinations: function(arrays, result){
-    var results = [];
-
-    var run = function(arrays){
-      if(arrays.length === 0) return;
-      var copy = arrays.slice();
-      var current = copy.shift();
-      for(var array of copy) {
-        var result = this.combo(current, array);
-        console.log(result);
-        for(var item of result){
-          if(!this.contains(results,item)) results.push(item);
-        }
-      }
-      run(copy);
-    }.bind(this);
-
-    run(arrays);
-    return results;
+  combinations: function(keySets, result){
+    var firstSets = this.combo(keySets[0], keySets[1]);
+    var remaining = keySets.slice(2, keySets.length);
+    if(remaining.length === 0) return firstSets;
   },
   rotate: function(arr){
     var last = arr.shift();
