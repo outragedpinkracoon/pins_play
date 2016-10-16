@@ -15,7 +15,7 @@ var getPINs = function(observed) {
   var arr = observed.split("");
   if(arr.length === 1) return possibilities[arr[0]];
   var possibleKeys = keyPossibilities(arr);
-  combinations(possibleKeys);
+  return combinations(possibleKeys);
 }
 
 var keyPossibilities = function(arr){
@@ -31,12 +31,12 @@ var combinations = function(keySets, result){
   var remaining = keySets.slice(2, keySets.length);
   if(remaining.length === 0) return firstSets;
 
-  var results = [];
+  var results = firstSets;
 
   var run = function(sets){
     if(sets.length === 0) return;
     var current = sets[0];
-    var result = combo(firstSets, current);
+    var result = combo(results, current);
     results = result;
     sets.shift();
     run(sets);

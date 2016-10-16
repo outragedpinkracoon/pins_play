@@ -9,7 +9,7 @@ var model = {
     "7": ["4","7", "8"],
     "8": ["0", "5", "7", "8", "9"],
     "9": ["6", "8", "9"],
-    "0": ["0","8"]
+    "0": ["8"]
   },
   getPINs: function(observed) {
     var arr = observed.split("");
@@ -30,12 +30,12 @@ var model = {
     var remaining = keySets.slice(2, keySets.length);
     if(remaining.length === 0) return firstSets;
 
-    var results = [];
+    var results = firstSets;
 
     var run = function(sets){
       if(sets.length === 0) return;
       var current = sets[0];
-      var result = this.combo(firstSets, current);
+      var result = this.combo(results, current);
       results = result;
       sets.shift();
       run(sets);
