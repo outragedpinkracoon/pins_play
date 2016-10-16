@@ -29,6 +29,20 @@ var model = {
     var firstSets = this.combo(keySets[0], keySets[1]);
     var remaining = keySets.slice(2, keySets.length);
     if(remaining.length === 0) return firstSets;
+
+    var results = [];
+
+    var run = function(sets){
+      if(sets.length === 0) return;
+      var current = sets[0];
+      var result = this.combo(firstSets, current);
+      results = result;
+      sets.shift();
+      run(sets);
+    }.bind(this);
+
+    run(remaining);
+    return results;
   },
   rotate: function(arr){
     var last = arr.shift();
