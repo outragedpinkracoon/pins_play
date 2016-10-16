@@ -14,9 +14,10 @@ var model = {
   getPINs: function(observed) {
     var arr = observed.split("");
     if(arr.length === 1) return possibilities[arr[0]];
-    var allPossibilities = this.generatePossibilities(arr);
+    var possibilitiesPerKey = this.generateKeyPossibilities(arr);
+    generateCombinations(possibilitiesPerKey);
   },
-  generatePossibilities: function(arr){
+  generateKeyPossibilities: function(arr){
     var permutations = [];
     for(var item of arr){
       var possibles = this.possibilities[item];
