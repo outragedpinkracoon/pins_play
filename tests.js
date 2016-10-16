@@ -38,3 +38,10 @@ describe("contains", function(){
     assert.deepEqual(f.contains(["1","2","4"], "5"), false);
   });
 });
+
+
+describe("combinations", function(){
+  it("generates with same inputs", function(){
+    assert.deepEqual(f.combinations([["1","2","4"],["1","2","4"]]).sort(), ["11", "22", "44", "12", "21", "14", "41", "24", "42"].sort())
+  });
+});

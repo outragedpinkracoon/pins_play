@@ -25,14 +25,24 @@ var model = {
     }
     return permutations;
   },
-  combinations: function(arrays){
-    var copy = arrays.slice();
-    var current = copy.shift();
+  combinations: function(arrays, result){
     var results = [];
-    for(var array of copy) {
-      var result = this.combo(current, array);
-      result.push;
-    }
+
+    var run = function(arrays){
+      if(arrays.length === 0) return;
+      var copy = arrays.slice();
+      var current = copy.shift();
+      for(var array of copy) {
+        var result = this.combo(current, array);
+        console.log(result);
+        for(var item of result){
+          if(!this.contains(results,item)) results.push(item);
+        }
+      }
+      run(copy);
+    }.bind(this);
+
+    run(arrays);
     return results;
   },
   rotate: function(arr){
