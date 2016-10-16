@@ -26,7 +26,12 @@ var model = {
     return permutations;
   },
   combinations: function(possibilitiesPerKey) {
-
+    
+  },
+  rotate: function(arr){
+    var last = arr.shift();
+    arr.push(last);
+    return arr;
   },
   combo: function(first, second){
     var result = []

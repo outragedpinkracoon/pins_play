@@ -22,3 +22,10 @@ describe("combination", function(){
     assert.deepEqual(f.combo(["1","2","4"],["1","3","5"]).sort(), ["11", "13", "15", "21", "23", "25", "41", "43", "45"].sort());
   });
 });
+
+describe("rotate", function(){
+  it("rotates", function(){
+    assert.deepEqual(f.rotate(["1","2","4"]), ["2","4","1"]);
+  });
+
+});
