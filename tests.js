@@ -28,3 +28,13 @@ describe("rotate", function(){
     assert.deepEqual(f.rotate(["1","2","4"]), ["2","4","1"]);
   });
 });
+
+describe("contains", function(){
+  it("contains the item", function(){
+    assert.deepEqual(f.contains(["1","2","4"], "1"), true);
+  });
+
+  it("doesn't contain the item", function(){
+    assert.deepEqual(f.contains(["1","2","4"], "5"), false);
+  });
+});

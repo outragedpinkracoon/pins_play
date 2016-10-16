@@ -45,13 +45,16 @@ var model = {
     for(var item of first) {
       for(var match of second){
         var added = item+match;
-        var matched = result.filter(function(item){
-          return item === added;
-        });
-        if(matched.length === 0) result.push(added);
+        if(!this.contains(result, added)) result.push(added);
       }
     }
     return result;
+  },
+  contains: function(array, check){
+    var matched = array.filter(function(item){
+      return item === check;
+    });
+    return matched.length !== 0;
   }
 }
 
